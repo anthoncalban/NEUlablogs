@@ -71,7 +71,8 @@ const App: React.FC = () => {
           setUser(userDoc.data() as User);
         } else {
           // Create new user profile
-          const isAdmin = firebaseUser.email === 'anthonvan.calban@neu.edu.ph';
+          const adminEmails = ['anthonvan.calban@neu.edu.ph', 'jcesperanza@neu.edu.ph'];
+          const isAdmin = adminEmails.includes(firebaseUser.email || '');
           const newUser: User = {
             uid: firebaseUser.uid,
             email: firebaseUser.email || '',
