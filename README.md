@@ -6,7 +6,7 @@ The **NEU Laboratory Room Logs** is a secure web application designed to streaml
 ---
 
 ## 🌐 Live Deployment
-- **Link:** [Insert your deployed URL here]
+- **Link:** [NEU Laboratory Room Logs](https://neu-lablogs.vercel.app/)
 
 ---
 
