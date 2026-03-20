@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user of the system (Admin or Professor).",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "professor"] },
+        "status": { "type": "string", "enum": ["active", "blocked"] }
+      },
+      "required": ["uid", "email", "role", "status"]
+    },
+    "Log": {
+      "title": "Log",
+      "description": "A log entry for a room usage.",
+      "type": "object",
+      "properties": {
+        "professorId": { "type": "string" },
+        "professorName": { "type": "string" },
+        "roomNumber": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "type": { "type": "string", "enum": ["login", "logout"] }
+      },
+      "required": ["professorId", "professorName", "roomNumber", "timestamp", "type"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and roles."
+    },
+    "/logs/{logId}": {
+      "schema": "Log",
+      "description": "Room usage logs."
+    }
+  }
+}
